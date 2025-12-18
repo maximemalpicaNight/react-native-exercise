@@ -1,9 +1,5 @@
-import { Text, View } from 'react-native';
+import FeedScreen from '@/src/screens/feed/feed-screen';
 
-export default function IndexScreen() {
-  return (
-    <View style={{ flex: 1}}>
-        <Text>dede</Text>
-    </View>
-  );
+export default function Index() {
+  return <FeedScreen />
 }
