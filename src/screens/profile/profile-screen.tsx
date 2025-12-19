@@ -1,9 +1,12 @@
-import { Image, StyleSheet, Text, View } from "react-native"
+import { useLocalSearchParams } from "expo-router";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function ProfileScreen() {
+
+  const {profile} = useLocalSearchParams();
+
   return (
     <View style={styles.container}>
-
       <View style={styles.image}>
         <View style={styles.avatarContainer}>
           <Image
@@ -16,8 +19,9 @@ export default function ProfileScreen() {
       </View>
 
       <View style={styles.bioContainer}>
+        <Text style={styles.usernameText}>{profile}</Text>
         <Text style={styles.bioText}>
-            This is nightborn profile page. 
+            This is nightborn profile page.
         </Text>
       </View>
 
@@ -32,7 +36,6 @@ export default function ProfileScreen() {
           <Text style={styles.statLabel}>Following</Text>
         </View>
       </View>
-
     </View>
   )
 }
@@ -76,6 +79,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap:"10%",
     paddingHorizontal: "10%",
+  },
+
+  usernameText : {
+    color: "#fff",
+    fontSize: 26,
+    textAlign: "center",
+    fontWeight: "bold",
   },
 
   statItem: {
