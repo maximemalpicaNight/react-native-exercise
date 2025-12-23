@@ -1,4 +1,4 @@
-export const useInfiniteScrollScreen = () => {
+export const useInfiniteScrollScreenLogic = () => {
     const list = [
         { username: "User1", profilePictue: "https://sortlist-core-api.s3.eu-west-1.amazonaws.com/691sw8s8dxjynerceh0xp1ge7duw", status: "completed" },
         { username: "User2", profilePictue: "https://sortlist-core-api.s3.eu-west-1.amazonaws.com/691sw8s8dxjynerceh0xp1ge7duw", status: "failed" },
@@ -41,5 +41,6 @@ export const useInfiniteScrollScreen = () => {
         { username: "User39", profilePictue: "https://sortlist-core-api.s3.eu-west-1.amazonaws.com/691sw8s8dxjynerceh0xp1ge7duw", status: "in progress" },
         { username: "User40", profilePictue: "https://sortlist-core-api.s3.eu-west-1.amazonaws.com/691sw8s8dxjynerceh0xp1ge7duw", status: "in progress" },
     ];
+    
     return { list }
 }
