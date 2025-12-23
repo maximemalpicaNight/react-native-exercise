@@ -11,10 +11,8 @@ export function useNativeFeaturesScreenLogic() {
 
     // Functions
     async function takePicture() {
-        if (cameraRef.current) {
-            const photo = await cameraRef.current.takePictureAsync();
-            console.log(photo); 
-        }
+        if (!cameraRef.current) return
+        const photo = await cameraRef.current.takePictureAsync();
     }
 
     function goBack() {
