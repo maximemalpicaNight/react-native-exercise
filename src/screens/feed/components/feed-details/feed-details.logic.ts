@@ -1,8 +1,7 @@
-import { useRoute } from "@react-navigation/native";
+import { useLocalSearchParams } from "expo-router";
 
 export function useFeedDetailsLogic() {
-  const route = useRoute();
-  const { post } = route.params;
+  const { post } = useLocalSearchParams();
 
   return {
     post,

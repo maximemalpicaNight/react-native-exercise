@@ -12,7 +12,7 @@ export default function FeedScreen() {
     description,
     handlePostOnTouchEnd,
     handleOpenModalPress,
-    handleCloseModal,
+    handleCloseModalPress,
     handleDescriptionChange,
   } = useFeedScreenLogic();
 
@@ -41,8 +41,8 @@ export default function FeedScreen() {
         transparent={false}
         animationType="slide"
       >
-        <SafeAreaView style={{ flex: 1 }}>
-          <View style={{ flex: 1, padding: 10 }}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.inputContainer}>
             <View>
               <TextInput
                 onChangeText={handleDescriptionChange}
@@ -53,7 +53,7 @@ export default function FeedScreen() {
           </View>
 
           <View>
-            <Pressable style={styles.backButton} onPress={handleCloseModal}>
+            <Pressable style={styles.backButton} onPress={handleCloseModalPress}>
               <Text style={styles.buttonText}>Go back to post</Text>
             </Pressable>
           </View>
