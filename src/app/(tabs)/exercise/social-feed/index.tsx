@@ -1,9 +1,14 @@
-import { Text, View } from 'react-native';
+import PostDetailsScreen from '@/src/screens/feed/components/feed-details/feed-details';
+import FeedScreen from '@/src/screens/feed/feed-screen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function IndexScreen() {
+const Stack = createNativeStackNavigator();
+
+export default function FeedStack() {
   return (
-    <View style={{ flex: 1}}>
-        <Text>dede</Text>
-    </View>
+    <Stack.Navigator >
+      <Stack.Screen name="FeedList" component={FeedScreen} />
+      <Stack.Screen name="PostDetails" component={PostDetailsScreen} />
+    </Stack.Navigator>
   );
 }

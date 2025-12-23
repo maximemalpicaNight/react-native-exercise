@@ -1,5 +1,5 @@
-import ProfileCardScreen from "@/src/screens/profile.tsx/profile-screen"
+import ProfileScreen from "@/src/screens/profile/profile-screen"
 
 export default function Todos() {
-    return <ProfileCardScreen />
+    return <ProfileScreen />
 }
