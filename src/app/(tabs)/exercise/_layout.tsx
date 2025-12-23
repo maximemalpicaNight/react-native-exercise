@@ -13,8 +13,7 @@ export default function TodosLayout() {
     >
         <Stack.Screen name="index" options={{ title: '' }} />
         <Stack.Screen name="todos" options={{ title: 'Menu' }} />
-        <Stack.Screen name="profile" options={{ title: 'Profile' }} />
-        <Stack.Screen name="social-feed" options={{ title: 'Social' }} />
+        <Stack.Screen name="social-feed" options={{ title: 'Social feed' }} />
     </Stack>
   );
 }
