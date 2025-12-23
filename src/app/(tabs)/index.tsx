@@ -5,6 +5,7 @@ import { HelloWave } from '@/src/components/hello-wave';
 import ParallaxScrollView from '@/src/components/parallax-scroll-view';
 import { ThemedText } from '@/src/components/themed-text';
 import { ThemedView } from '@/src/components/themed-view';
+import AppConfigScreen from '@/src/screens/app-config/app-config-screen';
 import { Link } from 'expo-router';
 
 export default function HomeScreen() {
@@ -21,6 +22,8 @@ export default function HomeScreen() {
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
+      
+      <AppConfigScreen />
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
