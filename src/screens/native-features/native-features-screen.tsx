@@ -1,28 +1,27 @@
-import { CameraView, useCameraPermissions } from 'expo-camera';
-import { useRouter } from 'expo-router';
-import { useRef } from 'react';
+import { CameraView } from 'expo-camera';
 import { Button, Pressable, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNativeFeaturesScreenLogic } from './native-features-screen.logic';
 import { styles } from './native-features-screen.styles';
 
 export default function NativeFeaturesScreen() {
-    const router = useRouter();
-    const [permission, requestPermission] = useCameraPermissions();
-    const cameraRef = useRef(null);
+    const {
+        permission,
+        requestPermission,
+        cameraRef,
+        takePicture,
+        goBack
+    } = useNativeFeaturesScreenLogic();
 
     if (!permission) {
         return <Text>Chargement...</Text>;
     }
 
-    async function takePicture() {
-        const photo = await cameraRef.current.takePictureAsync();
-    };
-
     return (
         <SafeAreaView style={styles.globalContainer} edges={['bottom']}>
             
             <View style={styles.buttonContainer}>
-                <Pressable onPress={() => router.push('/')} style={styles.button}>
+                <Pressable onPress={goBack} style={styles.button}>
                     <Text>Go back to menu</Text>
                 </Pressable>
             </View>
@@ -33,7 +32,7 @@ export default function NativeFeaturesScreen() {
                     <Button title="authorize" onPress={requestPermission} />
                 </View>
             ) : (
-                <CameraView ref={cameraRef} style={{ flex: 1 }} />
+                <CameraView ref={cameraRef} style={styles.cameraContainer} />
             )}
 
             {permission.granted && (

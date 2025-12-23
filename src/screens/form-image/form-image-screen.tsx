@@ -1,35 +1,14 @@
-import * as ImagePicker from "expo-image-picker"
-import { useState } from "react"
-import { Alert, Button, Image, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { styles } from "./form-image-screen.styles"
+import { Button, Image, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useFormImageScreenLogic } from "./form-image-screen.logic";
+import { styles } from "./form-image-screen.styles";
 
 export default function FormImageScreen() {
-  const [image, setImage] = useState<string | null>(null)
-  const [text, setText] = useState("")
 
-    const pickImage = async () => {
-        const permission = await ImagePicker.requestMediaLibraryPermissionsAsync()
+  // Attributs
+  const { image, text, setText, pickImagePress, handleSubmit } = useFormImageScreenLogic();
 
-        if (!permission.granted) {
-            Alert.alert("Permission")
-            return
-        }
-
-        const result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ['images'],
-            quality: 1,
-        })
-
-        if (!result.canceled) {
-            setImage(result.assets[0].uri)
-        }
-    }
-
-  const handleSubmit = () => {
-    Alert.alert("Form Submit")
-  }
-
+  // Render
   return (
     <SafeAreaView style={styles.globalContainer}>
 
@@ -39,7 +18,7 @@ export default function FormImageScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
 
-        <TouchableOpacity onPress={pickImage} style={{ marginBottom: 16 }}>
+        <TouchableOpacity onPress={pickImagePress}>
             <Text>Add Screenshot</Text>
         </TouchableOpacity>
 
